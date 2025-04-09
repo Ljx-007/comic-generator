@@ -1,0 +1,5 @@
+# API配置
+APIKey: your_api_token_here
+# 应用配置
+Debug: true
+SecretKey: your_secret_key_here 

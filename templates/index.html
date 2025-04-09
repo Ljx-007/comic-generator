@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI漫画生成器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI漫画生成器</h1>
+            <p>通过回答四个问题，生成一个有趣的连续漫画故事</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <h2>使用说明</h2>
+                <p>本应用将引导您回答4个问题，然后基于您的回答生成5张连续的漫画图像，讲述一个完整的故事。</p>
+                
+                <h3>工作流程</h3>
+                <ol>
+                    <li>描述故事的主角和背景</li>
+                    <li>描述故事的开始情节</li>
+                    <li>描述故事的中间发展</li>
+                    <li>描述故事的结局</li>
+                    <li>AI将优化您的描述为更适合图像生成的提示词</li>
+                    <li>基于优化的提示词，生成5张连续漫画图像</li>
+                </ol>
+                
+                <p>每个描述越详细，生成的图像效果越好。我们的AI将自动将您的故事描述优化为专业的绘画提示词，以生成高质量的漫画图像。</p>
+                
+                <div class="button-container">
+                    <a href="{{ url_for('questions') }}" class="button">开始创作</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 AI漫画生成器 - 基于Kolors和QwQ模型</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

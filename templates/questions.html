@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问题 {{ question_number }}/{{ total_questions }} - AI漫画生成器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI漫画生成器</h1>
+            <p>问题 {{ question_number }}/{{ total_questions }}</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <h2>{{ question }}</h2>
+                
+                <form method="POST" action="{{ url_for('questions') }}">
+                    <div class="form-group">
+                        <textarea name="answer" rows="6" placeholder="请尽可能详细地描述..." required>{{ current_answer }}</textarea>
+                    </div>
+                    
+                    <div class="button-container">
+                        <button type="submit" class="button">下一步</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ (question_number / total_questions) * 100 }}%"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 AI漫画生成器 - 基于Kolors模型</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

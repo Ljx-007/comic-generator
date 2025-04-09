@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的漫画故事 - AI漫画生成器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>您的漫画故事</h1>
+            <p>基于您的描述生成的连续漫画</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <h2>您的故事</h2>
+                
+                <div class="story-container">
+                    {% for item in display_data %}
+                    <div class="story-panel">
+                        <div class="story-image">
+                            {% if item.image_url %}
+                            <img src="{{ item.image_url }}" alt="故事场景 {{ loop.index }}">
+                            {% else %}
+                            <div class="error-image">图片生成失败</div>
+                            {% endif %}
+                        </div>
+                        <div class="story-text">
+                            <h3>{{ item.question }}</h3>
+                            <p class="user-answer"><strong>您的描述：</strong>{{ item.answer }}</p>
+                            <p class="model-prompt"><strong>优化提示词：</strong>{{ item.prompt }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="button-container">
+                    <a href="{{ url_for('index') }}" class="button">创建新故事</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 AI漫画生成器 - 基于Kolors模型</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
